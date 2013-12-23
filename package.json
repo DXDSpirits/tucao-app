@@ -1,0 +1,38 @@
+{
+    "name": "tucaoapp",
+    "description": "Tucao App",
+    "version": "1.0.0",
+    "keywords": [],
+    "homepage": "http://www.oatpie.com",
+    "author": "XD",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DXDSpirits/tucao-app.git"
+    },
+    "bugs": {
+        "url": "https://github.com/DXDSpirits/tucao-app/issues"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.0",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-copy": "~0.4.0",
+        "grunt-contrib-uglify": "~0.2.2",
+        "grunt-contrib-less": "~0.8.0",
+        "grunt-contrib-sass": "~0.5.0",
+        "grunt-contrib-jshint": "~0.6.0",
+        "grunt-includes": "~0.2.4",
+        "grunt-contrib-connect": "~0.3.0",
+        "grunt-contrib-watch": "~0.4.4",
+        "grunt-concurrent": "~0.2.0",
+        "mime": "~1.2.9",
+        "grunt-shell": "~0.2.2",
+        "grunt-gettext": "~0.1.0",
+        "grunt-steroids": "0.x"
+    },
+    "engines": {
+        "steroids": "3.1.9"
+    }
+}

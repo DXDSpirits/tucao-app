@@ -1,0 +1,50 @@
+
+.view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    &.view-next, &.view-prev, &.view-hidden {
+        pointer-events: none;
+    }
+    &.view-hidden {
+        display: none;
+    }
+    &.view-next, &.view-prev {
+        display: block;
+    }
+}
+
+.wrapper {
+    position: relative;
+    background-color: @body-bg;
+    .flex-box(@orient: vertical, @pack: start);
+    .backface-visibility(hidden);
+    .translate3d(0, 0, 0);
+}
+
+.view.view-next > .wrapper {
+    .animation(slideinfromright .35s linear);
+    -webkit-animation-fill-mode: forwards;
+}
+
+.view.view-prev > .wrapper {
+    .animation(slideouttoleft .35s linear);
+    -webkit-animation-fill-mode: forwards;
+}
+
+.ar-outer {
+    position: relative;
+    .ar, .ar1 { padding-bottom: 100%; }
+    .ar2 { padding-bottom: 50%; }
+    .ar3 { padding-bottom: 33.333333%; }
+    .ar23 { padding-bottom: 66.666666%; }
+    .ar-inner {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        height: 100%; width: 100%;
+    }
+}

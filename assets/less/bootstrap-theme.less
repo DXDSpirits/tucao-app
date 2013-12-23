@@ -1,0 +1,84 @@
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "bootstrap/variables.less";
+@import "variables-custom.less";
+@import "bootstrap/mixins.less";
+
+body {
+    //background: url("../img/body-bg.jpg") repeat;
+}
+
+a:hover, a:focus {
+	color: @link-hover-color;
+	text-decoration: none;
+}
+
+//
+// Forms
+// --------------------------------------------------
+.form-control, .form-control:focus {
+	border-color: @input-border;
+	outline: none;
+	.box-shadow(none);
+}
+
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
+.form-horizontal.form-flat {
+    legend {
+        border: 0;
+    }
+    .form-group + .form-group {
+        margin-top: -16px;
+    }
+    .form-group.has-error + .form-group {
+        margin-top: -15px;
+    }
+    .form-control, .btn, .input-group-addon {
+        border-radius: 0;
+        height: 60px;
+        font-size: 16px;
+        line-height: 30px;
+        padding: 14px 12px;
+        -webkit-appearance: none;
+    }
+    .btn-group-justified {
+        border-collapse: collapse;
+    }
+    .btn.active {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    input[type="datetime-local"], select, input[disabled] {
+        -webkit-appearance: none;
+    }
+    select {
+        background: transparent;
+        cursor: pointer;
+    }
+    .input-group-addon select {
+        border: 0;
+        line-height: 28px;
+    }
+}
+
+//
+// Glyphicon
+// --------------------------------------------------
+.glyphicon:empty {
+    width: 1.5em;
+}
+
+//
+// Grid
+// --------------------------------------------------
+@media (min-width: @screen-lg-min) {
+    .container {
+        width: @container-md;
+    }
+}

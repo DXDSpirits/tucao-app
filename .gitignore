@@ -13,3 +13,13 @@ results
 
 npm-debug.log
 node_modules
+
+/.sass-cache/
+/dist/
+/www/*
+!/www/config.*.xml
+!/www/components/
+
+/assets/js/app/app-local.js
+config.json
+*.DS_Store
