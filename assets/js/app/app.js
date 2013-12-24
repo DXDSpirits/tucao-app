@@ -20,5 +20,5 @@ window.MeiweiApp = new (Backbone.View.extend({
 }))({el: document.body});
 
 MeiweiApp.initView = function() {
-    steroids.view.setBackgroundColor("#FFFFFF");
+    steroids.view.setBackgroundColor("#33465D");
 };

@@ -4,7 +4,9 @@ $(function() {
     		
     	},
     	initPage: function() {
-    		
+    		this.views = {
+    		    
+    		}
     	},
     	render: function() {
 	        

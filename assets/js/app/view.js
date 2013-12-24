@@ -129,7 +129,8 @@ MeiweiApp.PageView = MeiweiApp.View.extend({
         }
         this.views = {};
         _.bindAll(this, 'showPage', 'go', 'refresh', 'render', 'reset', 
-                        'onClickLeftBtn', 'onClickRightBtn');
+                        'onClickLeftBtn', 'onClickRightBtn', 'onVisibilityChange');
+        $(document).on("visibilitychange", this.onVisibilityChange);
         var $el = this.$el;
         this.$('.wrapper').on('webkitAnimationEnd', function(e) {
             if (e.originalEvent.animationName == "slideouttoleft") {
@@ -142,6 +143,7 @@ MeiweiApp.PageView = MeiweiApp.View.extend({
     },
     onClickLeftBtn: function() { MeiweiApp.goBack(); },
     onClickRightBtn: function() {},
+    onVisibilityChange: function() {},
     initPageNav: function(page, collection) {
         /*
          * Prevent Ghost click

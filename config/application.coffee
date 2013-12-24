@@ -11,7 +11,7 @@ steroids.config.tabBar.enabled = true
 steroids.config.tabBar.tabs = [
   {
     title: "吐槽"
-    icon: "assets/img/icons/disapprove@2x.png"
+    icon: "assets/img/icons/disapprove-large@2x.png"
     location: "http://localhost/index.html"
   },
   {
@@ -20,29 +20,24 @@ steroids.config.tabBar.tabs = [
     location: "http://localhost/index-reply.html"
   },
   {
-    title: "探索"
-    icon: "assets/img/icons/gps_searching@2x.png"
-    location: "http://localhost/index-explore.html"
-  },
-  {
     title: "资料"
     icon: "assets/img/icons/user_male@2x.png"
     location: "http://localhost/index-profile.html"
   }
 ]
 
-steroids.config.tabBar.tintColor = "#ffffff"
-steroids.config.tabBar.tabTitleColor = "#777777"
-steroids.config.tabBar.selectedTabTintColor = "#00aeef"
+steroids.config.tabBar.tintColor = "#2d3d52"
+steroids.config.tabBar.tabTitleColor = "#ffffff"
+steroids.config.tabBar.selectedTabTintColor = "#589fc8"
 #steroids.config.tabBar.selectedTabBackgroundImage = "assets/img/pill@2x.png"
 
 steroids.config.tabBar.backgroundImage = ""
 
 # -- Navigation Bar --
-steroids.config.navigationBar.tintColor = "#00aeef"
+steroids.config.navigationBar.tintColor = "#2d3d52"
 steroids.config.navigationBar.titleColor = "#ffffff"
-steroids.config.navigationBar.buttonTintColor = "#ffffff"
-steroids.config.navigationBar.buttonTitleColor = "#ffffff"
+steroids.config.navigationBar.buttonTintColor = "#dddddd"
+steroids.config.navigationBar.buttonTitleColor = "#dddddd"
 
 # steroids.config.navigationBar.landscape.backgroundImage = ""
 # steroids.config.navigationBar.portrait.backgroundImage = ""

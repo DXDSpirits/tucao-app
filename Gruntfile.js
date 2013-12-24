@@ -80,7 +80,7 @@ module.exports = function(grunt) {
     			src: [
     				'assets/css/**/*',
     				'assets/img/**/*',
-    				'assets/font/**/*',
+    				'assets/fonts/**/*',
     				'assets/js/vendor/**/*',
     				'assets/js/plugin/**/*',
     				'config.xml'
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
                 tasks: ['concat:bootstrap']
             },
 			staticfiles: {
-				files: ['assets/css/**/*', 'assets/img/**/*', 'assets/font/**/*',
+				files: ['assets/css/**/*', 'assets/img/**/*', 'assets/fonts/**/*',
 				        'assets/js/vendor/**/*', 'assets/js/plugin/**/*', 
 				        'config.xml', '.htaccess', 'cordova.js'],
 				tasks: ['copy']
