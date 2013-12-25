@@ -1,0 +1,32 @@
+<header class="row">
+    <div class="pull-left">
+        <img class="avatar" src="{{ member.avatar }}" />
+    </div>
+    <div class="pull-left">
+        <p>{{ member.name }}</p>
+        <aside>{{ member.slogan }}</aside>
+    </div>
+    <div class="pull-right">
+        <i class="fa fa-comment-o fa-2x"></i>
+    </div>
+</header>
+<section class="tweet-body">
+    <p>{{ content }}</p>
+</section>
+<footer class="row">
+    <div class="pull-left sadness">
+        <p class="small">
+            <span>悲情值</span>
+            <strong>{{ sadness }}</strong>
+        </p>
+    </div>
+    <div class="pull-right">
+        <i class="fa fa-retweet fa-2x"></i>
+    </div>
+    <div class="pull-right">
+        <i class="fa fa-heart-o fa-2x"></i>
+    </div>
+    <div class="pull-right">
+        <i class="fa fa-thumbs-o-down fa-2x"></i>
+    </div>
+</footer>

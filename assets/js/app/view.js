@@ -56,7 +56,6 @@ MeiweiApp.View = Backbone.View.extend({
         this.removeFastButtons();
         this.$el.html(this.template(attrs || {}));
         this.delegateFastButtons();
-        MeiweiApp.initLang(this.$el);
         return this;
     }
 });

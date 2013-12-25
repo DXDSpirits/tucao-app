@@ -1,0 +1,36 @@
+.tweet-list-item {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #243142;
+    > header, > footer {
+        padding: 7px;
+        background-color: #FAFAFA;
+        p { margin: 0; }
+        aside { color: @gray-light; font-size: .7em; }
+        .fa { margin: 0 10px; }
+        .sadness { padding: 5px; }
+    }
+    .avatar {
+        .square(35px);
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+    .tweet-body {
+        padding: 10px;
+    }
+}
+
+#view-explore {
+    .tweet-list-item {
+        .transition(all .5s ease-in-out);
+    }
+    .tweet-list-item.invisible:nth-child(2n+1) { 
+        .translate3d(-300px, 0, 0);
+    }
+    .tweet-list-item.invisible:nth-child(2n) {
+        .translate3d(300px, 0, 0);
+    }
+}
