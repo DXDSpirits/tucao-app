@@ -62,7 +62,13 @@ module.exports = function(grunt) {
         },
 		includes: {
 			files: {
-				src: ['mobile/index.html', 'mobile/index-profile.html', 'mobile/index-notification.html', 'mobile/index-explore.html'],
+				src: [
+				    'mobile/index.html',
+				    'mobile/index-profile.html',
+				    'mobile/index-notification.html',
+				    'mobile/index-explore.html',
+				    'mobile/index-tweet-detail.html'
+				],
 				dest: '<%= cfg.path.dest %>',
 				flatten: true,
 				cwd: '.'
