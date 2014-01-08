@@ -1,4 +1,6 @@
 
+window.INSTANCE = {};
+
 window.MeiweiApp = new (Backbone.View.extend({
     
     Version: 1.0,

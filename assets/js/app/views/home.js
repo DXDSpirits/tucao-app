@@ -25,7 +25,7 @@ $(function() {
     	initEvents: function() {
     	    var self = this;
     	    this.$('.tweet-btn-next').hammer().on('tap', function(e) {
-    	        var webView = new steroids.views.WebView("http://localhost/index-explore.html");
+    	        var webView = new steroids.views.WebView("/index-explore.html");
                 steroids.layers.push(webView);
     	    });
     	},

@@ -1,32 +1,29 @@
-.tweet-list-item {
+.reply-list-item {
     &:first-child { margin-top: 20px; }
     &:last-child { margin-bottom: 20px; }
     overflow: hidden;
     > header, > footer {
         padding: 7px;
         p { margin: 0; }
-        aside { color: @gray-lighter; font-size: .7em; }
         .fa { margin: 0 10px; }
-        .sadness { padding: 5px; }
+        background: darken(@body-bg, 1%);
     }
-    .avatar {
-        .square(35px);
-        border-radius: 3px;
-        margin-right: 10px;
-    }
-    .tweet-body {
+    > article {
         padding: 10px;
     }
+    .fa-heart-o, .fa-heart { color: @brand-danger; }
+    .fa-retweet { color: @brand-success; }
+    .fa-reply { color: @brand-info; }
 }
 
-#view-explore {
-    .tweet-list-item {
+#view-notification {
+    .reply-list-item {
         .transition(all .5s ease-in-out);
     }
-    .tweet-list-item.invisible:nth-child(2n+1) { 
+    .reply-list-item.invisible:nth-child(2n+1) { 
         .translate3d(-300px, 0, 0);
     }
-    .tweet-list-item.invisible:nth-child(2n) {
+    .reply-list-item.invisible:nth-child(2n) {
         .translate3d(300px, 0, 0);
     }
 }

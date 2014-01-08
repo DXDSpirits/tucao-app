@@ -1,6 +1,6 @@
 // Brand colors
 // -------------------------
-@brand-primary:         #243142;
+@brand-primary:         #243142; //darker than body background
 
 // Scaffolding
 // -------------------------
@@ -25,13 +25,32 @@
 
 // Buttons
 // -------------------------
-@btn-default-border:             transparent;
-@btn-primary-border:             transparent;
-@btn-success-border:             transparent;
-@btn-warning-border:             transparent;
-@btn-danger-border:              transparent;
-@btn-info-border:                transparent;
+
+@btn-default-bg:                 #f0f0f0;
+@btn-default-border:             @btn-default-bg;
+@btn-primary-border:             @btn-primary-bg;
+@btn-success-border:             @btn-success-bg;
+@btn-warning-border:             @btn-warning-bg;
+@btn-danger-border:              @btn-danger-bg;
+@btn-info-border:                @btn-info-bg;
 
 // Forms
 // -------------------------
-@input-border:            transparent;
+
+@input-bg:                       #fff;
+
+@input-border:                   transparent;
+@input-border-radius:            0;
+@input-border-focus:             @input-border;
+
+@input-group-addon-bg:           @input-border;
+@input-group-addon-border-color: @input-border;
+
+// Wells
+// -------------------------
+@well-bg:                     @body-bg;
+@well-border:                 @body-bg;
+
+// Type
+// ------------------------
+@headings-small-color:        @gray-lighter;

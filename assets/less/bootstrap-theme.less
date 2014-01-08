@@ -26,55 +26,50 @@ a:hover, a:focus {
 }
 
 //
+// Grid
+// --------------------------------------------------
+@media (min-width: @screen-lg-min) {
+    .container {
+        width: @container-md;
+    }
+}
+
+//
 // Forms
 // --------------------------------------------------
 .form-control, .form-control:focus {
-	border-color: @input-border;
-	outline: none;
-	.box-shadow(none);
-	-webkit-appearance: none;
+    .box-shadow(none);
 }
 
-input[type="search"] {
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+textarea {
     -webkit-appearance: none;
 }
+input[type="date"] {
+    line-height: @line-height-base;
+}
 
-.form-horizontal.form-flat {
-    legend {
-        border: 0;
-    }
-    .form-group + .form-group {
-        margin-top: -16px;
-    }
-    .form-group.has-error + .form-group {
-        margin-top: -15px;
-    }
-    .form-control, .btn, .input-group-addon {
-        border-radius: 0;
-        height: 60px;
-        font-size: 16px;
-        line-height: 30px;
-        padding: 14px 12px;
-        -webkit-appearance: none;
-    }
-    .btn-group-justified {
-        border-collapse: collapse;
-    }
-    .btn.active {
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-    input[type="datetime-local"], select, input[disabled] {
-        -webkit-appearance: none;
-    }
-    select {
-        background: transparent;
-        cursor: pointer;
-    }
-    .input-group-addon select {
-        border: 0;
-        line-height: 28px;
-    }
+//
+// Buttons
+// --------------------------------------------------
+.btn, .btn-lg, .btn-sm, .btn-xs {
+    border-radius: 0;
+}
+.btn:active, .btn.active {
+    .box-shadow(none);
 }
 
 //
@@ -85,10 +80,16 @@ input[type="search"] {
 }
 
 //
-// Grid
+// Wells
 // --------------------------------------------------
-@media (min-width: @screen-lg-min) {
-    .container {
-        width: @container-md;
-    }
+.well {
+    color: #fff;
+    border-radius: 0;
+    border: 0;
+    .box-shadow(0 0 20px rgba(0,0,0,.3));
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#eeeeee');
+}
+
+.well-xs {
+    padding: 0;
 }

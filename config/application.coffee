@@ -15,9 +15,14 @@ steroids.config.tabBar.tabs = [
     location: "http://localhost/index.html"
   },
   {
+    title: "发现"
+    icon: "assets/img/icons/talk@2x.png"
+    location: "http://localhost/index-explore.html"
+  },
+  {
     title: "共鸣"
     icon: "assets/img/icons/talk@2x.png"
-    location: "http://localhost/index-reply.html"
+    location: "http://localhost/index-notification.html"
   },
   {
     title: "资料"
