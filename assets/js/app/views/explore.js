@@ -18,11 +18,21 @@ $(function() {
     		
     	},
     	initPage: function() {
+    	    steroids.view.navigationBar.show("发现吐槽");
+    	    this.initButtons();
     	    this.tweets = new MeiweiApp.Collections.Tweets();
     		this.views = {
     		    tweetList: new TweetList({ collection: this.tweets, el: this.$('.tweet-list') })
     		};
     	},
+        initButtons: function() {
+            var rightButton = new steroids.buttons.NavigationBarButton();
+            rightButton.onTap = function() { };
+            rightButton.imagePath = "/assets/img/icons/search@2x.png";
+            steroids.view.navigationBar.setButtons({
+                right : [rightButton]
+            });
+        },
         onVisibilityChange: function() {
             if (document.hidden) {
                 this.$('.tweet-list-item').addClass('invisible');

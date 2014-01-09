@@ -8,7 +8,7 @@ MeiweiApp.Collections.Tweets = MeiweiApp.Collection.extend({
 var TWEETS_INSTANCE = [
     {
         content: '立即全方位你的视野，使用暴走漫画手机端即时抢阅官网更新，让暴漫出现在公车上、地铁里、课桌下，厕格间！',
-        tags: [],
+        tags: ['好酷哦', '吃螃蟹的人', '一个导演的梦', '尼玛比'],
         sadness: 12389,
         member: {
             avatar: 'assets/img/avatars/4.jpg',

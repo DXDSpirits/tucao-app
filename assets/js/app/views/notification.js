@@ -20,10 +20,20 @@ $(function() {
     		
     	},
     	initPage: function() {
+    	    steroids.view.navigationBar.show("来自他人的共鸣");
+    	    this.initButtons();
             this.replies = new MeiweiApp.Collections.Replies();
             this.views = {
                 replyList: new ReplyList({ collection: this.replies, el: this.$('.reply-list') })
             };
+        },
+        initButtons: function() {
+            var rightButton = new steroids.buttons.NavigationBarButton();
+            rightButton.onTap = function() { };
+            rightButton.imagePath = "/assets/img/icons/search@2x.png";
+            steroids.view.navigationBar.setButtons({
+                right : [rightButton]
+            });
         },
         onVisibilityChange: function() {
             if (document.hidden) {

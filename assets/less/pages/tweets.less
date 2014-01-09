@@ -17,6 +17,11 @@
     .tweet-body {
         padding: 10px;
     }
+    .tag {
+        color: @gray-light;
+        &:after { content: ", " }
+        &:last-child:after { content: "" }
+    }
 }
 
 #view-explore {

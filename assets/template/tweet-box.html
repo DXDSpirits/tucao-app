@@ -12,6 +12,7 @@
 </header>
 <section class="tweet-body">
     <p>{{ content }}</p>
+    <p>{{ #tags }}<span class="tag">#{{.}}</span>{{ /tags }}</p>
 </section>
 <footer class="clearfix">
     <div class="pull-left sadness">

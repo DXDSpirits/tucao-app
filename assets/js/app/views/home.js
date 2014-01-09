@@ -1,26 +1,12 @@
 $(function() {
     MeiweiApp.Pages.Home = new (MeiweiApp.PageView.extend({
+        events: {
+            'focus .tags input': 'showTagsList',
+            'click .tags-list': 'closeTagsList'
+        },
     	initPage: function() {
-    	    steroids.view.navigationBar.show("吐槽神器");
     	    this.$('.cat-icon').addClass('invisible');
-            this.initButtons();
             this.initEvents();
-    	},
-    	initButtons: function() {
-            var leftButton = new steroids.buttons.NavigationBarButton();
-            var rightButton = new steroids.buttons.NavigationBarButton();
-            var imageButton = new steroids.buttons.NavigationBarButton();
-            leftButton.title = "Back";
-            rightButton.onTap = function() {
-                var profileView = new steroids.views.WebView("/index-profile.html");
-                steroids.layers.push(profileView);
-            };
-            rightButton.title = "Right";
-            imageButton.imagePath = "/assets/img/icons/search@2x.png";
-            steroids.view.navigationBar.setButtons({
-                left : [leftButton],
-                right : [rightButton, imageButton]
-            });
     	},
     	initEvents: function() {
     	    var self = this;
@@ -36,6 +22,12 @@ $(function() {
     	        this.$('.cat-icon').removeClass('invisible');
     	    }
     	},
+    	showTagsList: function() {
+    	    this.$('.tags-list').animate({ height: 80 });
+    	},
+        closeTagsList: function() {
+            this.$('.tags-list').animate({ height: 0 });
+        },
     	render: function() {
 	        
     	}

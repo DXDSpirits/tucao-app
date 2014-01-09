@@ -1,6 +1,6 @@
 <div class="view view-hidden" id="view-home">
 	<section class="container wrapper">
-	    <div class="row">
+	    <div class="row hidden">
 	        <div class="col-xs-4 ar-outer cat-row">
 	            <div class="ar"></div>
 	            <div class="ar-inner cat-icon type-indicator" data-type="0">
@@ -41,14 +41,19 @@
 	    </div>
 	    <form class="tweet-form" role="form">
 	        <div class="form-group">
-	            <textarea class="form-control" rows="5"></textarea>
+	            <textarea class="form-control" rows="7" placeholder="随便说点什么吧"></textarea>
 	        </div>
-	        <div class="form-group">
-	            <label>标签</label>
-                <input type="text" class="form-control">
+            <div class="input-group tags">
+                <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                <input type="text" class="form-control" placeholder="标签">
+            </div>
+            <div class="tags-list">
+                <p>哈哈</p>
+                <p>哈哈哈</p>
+                <p>哈哈哈哈</p>
             </div>
 	    </form>
-        <button class="btn btn-primary btn-block tweet-btn-next">
+        <button class="btn btn-lg btn-primary btn-block tweet-btn-next">
             <span>下一步</span>
             <i class="fa"></i>
         </button>
