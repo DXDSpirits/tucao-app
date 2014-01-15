@@ -7,7 +7,7 @@ steroids.config.name = "Tucao"
 steroids.config.location = "http://localhost/index.html"
 
 # -- Tab Bar --
-steroids.config.tabBar.enabled = true
+steroids.config.tabBar.enabled = false
 steroids.config.tabBar.tabs = [
   {
     title: "吐槽"

@@ -18,7 +18,7 @@ $(function() {
     		
     	},
     	initPage: function() {
-    	    steroids.view.navigationBar.show("发现吐槽");
+    	    steroids.view.navigationBar.show("10个和你有相同遭遇的人");
     	    this.initButtons();
     	    this.tweets = new MeiweiApp.Collections.Tweets();
     		this.views = {
