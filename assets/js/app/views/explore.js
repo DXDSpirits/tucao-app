@@ -10,7 +10,12 @@ $(function() {
                     steroids.modal.show(webView);
                 });
             }
-        })
+        }),
+        addAll: function() {
+            MeiweiApp.CollectionView.prototype.addAll.call(this);
+            var tpl = Mustache.compile('<h4 class="text-center">{{n}}个和你有相同遭遇的人<br>...</h4>');
+            this.$el.prepend(tpl({n: this.collection.length}));
+        }
     });
     
     MeiweiApp.Pages.Explore = new (MeiweiApp.PageView.extend({
@@ -18,7 +23,7 @@ $(function() {
     		
     	},
     	initPage: function() {
-    	    steroids.view.navigationBar.show("10个和你有相同遭遇的人");
+    	    steroids.view.navigationBar.show("寻找共鸣");
     	    this.initButtons();
     	    this.tweets = new MeiweiApp.Collections.Tweets();
     		this.views = {
@@ -28,7 +33,8 @@ $(function() {
         initButtons: function() {
             var rightButton = new steroids.buttons.NavigationBarButton();
             rightButton.onTap = function() { };
-            rightButton.imagePath = "/assets/img/icons/search@2x.png";
+            //rightButton.imagePath = "/assets/img/icons/search@2x.png";
+            rightButton.title = '排行榜';
             steroids.view.navigationBar.setButtons({
                 right : [rightButton]
             });
@@ -41,7 +47,11 @@ $(function() {
             }
         },
     	render: function() {
-	        this.tweets.reset(INSTANCE.tweets);
+    	    var keywords = MeiweiApp.getKeywords();
+    	    var tweets = _.filter(INSTANCE.tweets, function(tweet) {
+    	        return !_.isEmpty(_.intersection(keywords, tweet.tags));
+    	    });
+	        this.tweets.reset(_.isEmpty(tweets) ? INSTANCE.tweets : tweets);
     	}
     }))({el: $("#view-explore")});
 });

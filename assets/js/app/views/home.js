@@ -1,20 +1,23 @@
 $(function() {
     MeiweiApp.Pages.Home = new (MeiweiApp.PageView.extend({
-        events: {
-            'focus .tags input': 'showTagsList',
-            'click .tags-list': 'closeTagsList'
-        },
+        events: {},
     	initPage: function() {
-    	    this.$('.cat-icon').addClass('invisible');
+    	    //this.$('.cat-icon').addClass('invisible');
+    	    _.bindAll(this, 'toExplore', 'showTagsList', 'closeTagsList', 'getInspirated');
     	    steroids.view.navigationBar.show("吐槽神器");
     	    this.initButtons();
             this.initEvents();
     	},
     	initEvents: function() {
     	    var self = this;
-    	    this.$('.tweet-btn-next').hammer().on('tap', function(e) {
-    	        var webView = new steroids.views.WebView("/index-explore.html");
-                steroids.layers.push(webView);
+    	    this.$('.tweet-btn-next').hammer().on('tap', this.toExplore);
+    	    this.$('.tags input').hammer().on('tap', this.showTagsList);
+    	    this.$('.tags-list .tag').hammer().on('tap', this.closeTagsList);
+    	    this.$('.inspirations span').hammer().on('tap', this.getInspirated);
+    	    this.$('.camera').hammer().on('tap', function() {
+    	        navigator.camera.getPicture(function(){}, function(){}, {
+    	            sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+    	        });
     	    });
     	},
         initButtons: function() {
@@ -42,11 +45,31 @@ $(function() {
     	        this.$('.cat-icon').removeClass('invisible');
     	    }
     	},
-    	showTagsList: function() {
-    	    this.$('.tags-list').animate({ height: 80 });
+    	toExplore: function(e) {
+    	    var keywords = this.$('.tags input').val().split();
+    	    MeiweiApp.setKeywords(keywords);
+    	    var webView = new steroids.views.WebView("/index-explore.html");
+            steroids.layers.push(webView);
     	},
-        closeTagsList: function() {
-            this.$('.tags-list').animate({ height: 0 });
+    	getInspirated: function(e) {
+    	    var text = $(e.target).text();
+    	    this.$('.tweet-form textarea').text('#' + text + ' ');
+    	    this.$('.tags input').val(text);
+    	},
+    	showTagsList: function() {
+    	    this.$('.tweet-form textarea').attr('disabled', 'disabled');
+    	    var keywords = this.$('.tags input').val();
+    	    if (keywords[keywords.length - 1] != ' ') this.$('.tags input').val(keywords + ' '); 
+    	    this.$('.tags-list').animate({ height: 110 });
+    	},
+        closeTagsList: function(e) {
+            var text = $(e.target).text();
+            var keywords = this.$('.tags input').val();
+            this.$('.tags input').val(keywords + text);
+            var self = this;
+            this.$('.tags-list').animate({ height: 0 }, 500, function() {
+                self.$('.tweet-form textarea').removeAttr('disabled');
+            });
         },
     	render: function() {
 	        

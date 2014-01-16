@@ -2,6 +2,17 @@ MeiweiApp.isCordova = function() {
     return device.cordova;
 };
 
+MeiweiApp.getKeywords = function() {
+    var keywords = localStorage.getItem('recent-keywords').split(' ');
+    keywords = _.filter(keywords, function(word) {
+        return word;
+    })
+    return _.isEmpty(keywords) ? ['地铁', '老师'] : keywords;
+};
+MeiweiApp.setKeywords = function(keywords) {
+    localStorage.setItem('recent-keywords', keywords.join(' '));
+};
+
 MeiweiApp.showConfirmDialog = function(title, content, onConfirm) {
     var dialog = new (MeiweiApp.View.extend({
         className: 'dialog confirm-dialog',
