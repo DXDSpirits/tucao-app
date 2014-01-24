@@ -7,22 +7,27 @@ MeiweiApp.Collections.Tweets = MeiweiApp.Collection.extend({
 
 var MEMBERS = [
     {
+        id: 1,
         avatar: 'assets/img/avatars/1.jpg',
         name: '鬼骨孖',
         slogan: '抓了把童子口袋里的糖果'
     }, {
+        id: 2,
         avatar: 'assets/img/avatars/2.jpg',
         name: 'Sorya',
         slogan: '抓了把童子口袋里的糖果'
     }, {
+        id: 3,
         avatar: 'assets/img/avatars/3.jpg',
         name: '米兰达',
         slogan: '抓了把童子口袋里的糖果'
     }, {
+        id: 4,
         avatar: 'assets/img/avatars/4.jpg',
         name: '艾瑞恩',
         slogan: '抓了把童子口袋里的糖果'
     }, {
+        id: 5,
         avatar: 'assets/img/avatars/5.jpg',
         name: '阿傻',
         slogan: '抓了把童子口袋里的糖果'
@@ -100,6 +105,9 @@ INSTANCE.tweets = _.map(TWEETS_INSTANCE, function(item, n) {
     var tweet = _.clone(item);
     tweet.id = n + 1;
     tweet.member = _.clone(MEMBERS[n % 5]);
+    tweet.distance = _.random(1, 5000);
     tweet.sadness = _.random(1000, 5000);
+    tweet.liked = _.sample([true, false], 1)[0];
+    tweet.retweeted = _.sample([true, false], 1)[0];
     return _.clone(tweet);
 });

@@ -2,15 +2,13 @@ MeiweiApp.isCordova = function() {
     return device.cordova;
 };
 
-MeiweiApp.getKeywords = function() {
-    var keywords = localStorage.getItem('recent-keywords').split(' ');
-    keywords = _.filter(keywords, function(word) {
-        return word;
-    })
-    return _.isEmpty(keywords) ? ['地铁', '老师'] : keywords;
+MeiweiApp.getMessage = function() {
+    var message = JSON.parse(localStorage.getItem('message'))
+    localStorage.removeItem('message')
+    return message == null ? {} : message;
 };
-MeiweiApp.setKeywords = function(keywords) {
-    localStorage.setItem('recent-keywords', keywords.join(' '));
+MeiweiApp.setMessage = function(message) {
+    localStorage.setItem('message', JSON.stringify(message));
 };
 
 MeiweiApp.showConfirmDialog = function(title, content, onConfirm) {

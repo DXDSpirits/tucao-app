@@ -2,9 +2,8 @@ $(function() {
     MeiweiApp.Pages.Home = new (MeiweiApp.PageView.extend({
         events: {},
     	initPage: function() {
-    	    //this.$('.cat-icon').addClass('invisible');
     	    _.bindAll(this, 'toExplore', 'showTagsList', 'closeTagsList', 'getInspirated');
-    	    steroids.view.navigationBar.show("吐槽神器");
+    	    steroids.view.navigationBar.show("遭遇");
     	    this.initButtons();
             this.initEvents();
     	},
@@ -26,11 +25,11 @@ $(function() {
             leftButton.title = "资料";
             rightButton.title = "通知";
             rightButton.onTap = function() {
-                var webView = new steroids.views.WebView("/index-notification.html");
+                var webView = new steroids.views.WebView("index-notification.html");
                 steroids.layers.push(webView);
             };
             leftButton.onTap = function() {
-                var webView = new steroids.views.WebView("/index-profile.html");
+                var webView = new steroids.views.WebView("index-profile.html");
                 steroids.layers.push(webView);
             };
             steroids.view.navigationBar.setButtons({
@@ -40,15 +39,16 @@ $(function() {
         },
     	onVisibilityChange: function() {
     	    if (document.hidden) {
-    	        this.$('.cat-icon').addClass('invisible');
+    	        this.$('.fly').addClass('invisible');
     	    } else {
-    	        this.$('.cat-icon').removeClass('invisible');
+    	        this.$('.fly').removeClass('invisible');
     	    }
     	},
     	toExplore: function(e) {
-    	    var keywords = this.$('.tags input').val().split();
-    	    MeiweiApp.setKeywords(keywords);
-    	    var webView = new steroids.views.WebView("/index-explore.html");
+    	    var keywords = this.$('.tags input').val().split(' ');
+    	    keywords = _.filter(keywords, function(word) { return word; });
+    	    MeiweiApp.setMessage(keywords);
+    	    var webView = new steroids.views.WebView("index-explore.html");
             steroids.layers.push(webView);
     	},
     	getInspirated: function(e) {

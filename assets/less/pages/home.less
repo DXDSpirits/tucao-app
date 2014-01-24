@@ -6,7 +6,7 @@
             padding: 10px;
             margin: 10px 5px;
             border-radius: 3px;
-            cursor: pointer; 
+            cursor: pointer;
         }
     }
     .toplist {
@@ -51,12 +51,16 @@
 	    color: @brand-primary;
 	    h2 { margin: 0; }
 	    .fa { margin-top: 2px; }
-	    .transition(all .5s ease-in-out);
 	}
-	.cat-row:nth-child(1) .cat-icon.invisible { .translate3d(0, -100px, 0); }
-	.cat-row:nth-child(2) .cat-icon.invisible { .translate3d(0, -200px, 0); }
-	.cat-row:nth-child(3) .cat-icon.invisible { .translate3d(0, -150px, 0); }
-	.cat-row:nth-child(5) .cat-icon.invisible { .translate3d(0, -250px, 0); }
-	.cat-row:nth-child(6) .cat-icon.invisible { .translate3d(0, -200px, 0); }
-	.cat-row:nth-child(7) .cat-icon.invisible { .translate3d(0, -300px, 0); }
+	.fly { .transition(all 1s ease-in-out); }
+	.fly:nth-of-type(1).invisible { .translate3d(-300px, -300px, 0); }
+	.fly:nth-of-type(2).invisible { .translate3d(0, -300px, 0); }
+	.fly:nth-of-type(3).invisible { .translate3d(300px, -300px, 0); }
+	.fly:nth-of-type(4).invisible { .translate3d(-300px, 0, 0); }
+	.fly:nth-of-type(5).invisible { .translate3d(0, -300px, 0); }
+	.fly:nth-of-type(6).invisible { .translate3d(300px, 0, 0); }
+	.fly:nth-of-type(7).invisible { .translate3d(-300px, 300px, 0); }
+	.fly:nth-of-type(8).invisible { .translate3d(-300px, 300px, 0); }
+	.fly:nth-of-type(9).invisible { .translate3d(300px, 300px, 0); }
+	.fly:nth-of-type(10).invisible { .translate3d(300px, 300px, 0); }
 }

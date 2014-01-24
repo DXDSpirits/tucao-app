@@ -7,7 +7,8 @@
         <aside>{{ member.slogan }}</aside>
     </div>
     <div class="pull-right">
-        <i class="fa fa-comment-o fa-2x"></i>
+        <p class="small">{{ distance }}m</p>
+        <!--<i class="fa fa-comment-o fa-2x"></i>-->
     </div>
 </header>
 <section class="tweet-body">
@@ -21,13 +22,10 @@
             <strong>{{ sadness }}</strong>
         </p>
     </div>
-    <div class="pull-right">
-        <i class="fa fa-retweet fa-2x"></i>
+    <div class="pull-right {{#retweeted}}highlight{{/retweeted}}">
+        <i class="fa fa-retweet fa-lg"></i>
     </div>
-    <div class="pull-right">
-        <i class="fa fa-heart-o fa-2x"></i>
-    </div>
-    <div class="pull-right">
-        <i class="fa fa-thumbs-o-down fa-2x"></i>
+    <div class="pull-right {{#liked}}highlight{{/liked}}">
+        <i class="fa fa-heart-o fa-lg"></i>
     </div>
 </footer>

@@ -3,17 +3,20 @@
     &:last-child { margin-bottom: 20px; }
     overflow: hidden;
     > header, > footer {
-        padding: 7px;
+        line-height: 30px;
         p { margin: 0; }
         .fa { margin: 0 10px; }
+        .avatar {
+            .square(30px);
+        }
         background: darken(@body-bg, 1%);
     }
     > article {
         padding: 10px;
     }
-    .fa-heart-o, .fa-heart { color: @brand-danger; }
-    .fa-retweet { color: @brand-success; }
-    .fa-reply { color: @brand-info; }
+    .fa-heart-o, .fa-heart { color: lighten(@brand-danger, 10%); opacity: .9; }
+    .fa-retweet { color: lighten(@brand-success, 10%); opacity: .9; }
+    .fa-reply { color: lighten(@brand-info, 10%); opacity: .9; }
 }
 
 #view-notification {

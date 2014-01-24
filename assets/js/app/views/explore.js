@@ -6,8 +6,10 @@ $(function() {
             initModelView: function() {
                 var self = this;
                 this.$el.hammer().on('tap', 'footer', function(e) {
-                    var webView = new steroids.views.PreviewFileView("/assets/img/avatars/5.jpg");
-                    steroids.modal.show(webView);
+                    MeiweiApp.setMessage({'tweets': [self.model.id]});
+                    var webView = new steroids.views.WebView("index-notification.html");
+                    var animation = new steroids.Animation("slideFromBottom");
+                    steroids.layers.push({view: webView, animation: animation});
                 });
             }
         }),
@@ -19,11 +21,9 @@ $(function() {
     });
     
     MeiweiApp.Pages.Explore = new (MeiweiApp.PageView.extend({
-    	events: {
-    		
-    	},
+    	events: {},
     	initPage: function() {
-    	    steroids.view.navigationBar.show("寻找共鸣");
+    	    steroids.view.navigationBar.show("共鸣");
     	    this.initButtons();
     	    this.tweets = new MeiweiApp.Collections.Tweets();
     		this.views = {
@@ -40,6 +40,7 @@ $(function() {
             });
         },
         onVisibilityChange: function() {
+            return;
             if (document.hidden) {
                 this.$('.tweet-list-item').addClass('invisible');
             } else {
@@ -47,7 +48,8 @@ $(function() {
             }
         },
     	render: function() {
-    	    var keywords = MeiweiApp.getKeywords();
+    	    var keywords = MeiweiApp.getMessage();
+    	    keywords = _.isEmpty(keywords) ? ['老师', '地铁'] : keywords;
     	    var tweets = _.filter(INSTANCE.tweets, function(tweet) {
     	        return !_.isEmpty(_.intersection(keywords, tweet.tags));
     	    });

@@ -16,11 +16,9 @@ $(function() {
     });
     
     MeiweiApp.Pages.Notification = new (MeiweiApp.PageView.extend({
-    	events: {
-    		
-    	},
+    	events: { },
     	initPage: function() {
-    	    steroids.view.navigationBar.show("来自他人的共鸣");
+    	    steroids.view.navigationBar.show("通知");
     	    this.initButtons();
             this.replies = new MeiweiApp.Collections.Replies();
             this.views = {
@@ -30,7 +28,8 @@ $(function() {
         initButtons: function() {
             var rightButton = new steroids.buttons.NavigationBarButton();
             rightButton.onTap = function() { };
-            rightButton.imagePath = "/assets/img/icons/search@2x.png";
+            //rightButton.imagePath = "/assets/img/icons/search@2x.png";
+            rightButton.title = '彩蛋';
             steroids.view.navigationBar.setButtons({
                 right : [rightButton]
             });
@@ -43,7 +42,14 @@ $(function() {
             }
         },
         render: function() {
-            this.replies.reset(INSTANCE.replies);
+            var message = MeiweiApp.getMessage();
+            var myTweets = function(tweet) { return tweet.member.id == 1; };
+            var toId = function(tweet) { return tweet.id; };
+            var tweets = message.tweets || _(INSTANCE.tweets).filter(myTweets).map(toId);
+            var replies = _.filter(INSTANCE.replies, function(reply) {
+                return _.contains(tweets, reply.tweet);
+            });
+            this.replies.reset(replies);
         }
     }))({el: $("#view-notification")});
 });
