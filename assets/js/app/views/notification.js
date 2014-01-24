@@ -7,6 +7,15 @@ $(function() {
                 reply: TPL['reply-box-reply']
             },
             className: 'reply-list-item well well-xs',
+            initModelView: function() {
+                var self = this;
+                this.$el.hammer().on('tap', function(e) {
+                    MeiweiApp.setMessage({'tweet': self.model.tweet});
+                    var webView = new steroids.views.WebView("index-tweet-detail.html");
+                    var animation = new steroids.Animation("slideFromBottom");
+                    steroids.layers.push({view: webView, animation: animation});
+                });
+            },
             render: function() {
                 var attrs = this.model ? this.model.toJSON() : {};
                 this.template = this.templates[attrs.action];
@@ -42,10 +51,9 @@ $(function() {
             }
         },
         render: function() {
-            var message = MeiweiApp.getMessage();
             var myTweets = function(tweet) { return tweet.member.id == 1; };
             var toId = function(tweet) { return tweet.id; };
-            var tweets = message.tweets || _(INSTANCE.tweets).filter(myTweets).map(toId);
+            var tweets = _(INSTANCE.tweets).filter(myTweets).map(toId);
             var replies = _.filter(INSTANCE.replies, function(reply) {
                 return _.contains(tweets, reply.tweet);
             });

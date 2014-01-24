@@ -40,9 +40,9 @@ var REPLIE_CONTENTS = [
     '金轩餐厅后，推出了不少新菜，昨日有幸抢先品尝了黄师傅的新作品。'
 ];
 
-INSTANCE.replies = _.times(100, function(n) {
+INSTANCE.replies = _.shuffle(_.times(100, function(n) {
     var reply = {};
-    reply.tweet = _.random(1, 21);
+    reply.tweet = n % 21 + 1;
     reply.id = n + 1;
     reply.member = _.clone(MEMBERS[n % 5]);
     reply.action = _.sample(['reply', 'retweet', 'reply', 'like', 'reply'], 1)[0];
@@ -50,4 +50,4 @@ INSTANCE.replies = _.times(100, function(n) {
         reply.content = _.sample(REPLIE_CONTENTS, 1)[0];
     }
     return _.clone(reply);
-});
+}));

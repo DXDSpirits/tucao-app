@@ -22,15 +22,15 @@
         &:after { content: ", " }
         &:last-child:after { content: "" }
     }
+    .highlight {
+        .fa-heart-o { color: lighten(@brand-danger, 10%); }
+        .fa-retweet { color: lighten(@brand-success, 10%); }
+    }
 }
 
 #view-explore {
     .tweet-list-item {
         .transition(all .5s ease-in-out);
-        .highlight {
-            .fa-heart-o { color: lighten(@brand-danger, 10%); }
-            .fa-retweet { color: lighten(@brand-success, 10%); }
-        }
     }
     .tweet-list-item.invisible:nth-child(2n+1) { 
         .translate3d(-300px, 0, 0);

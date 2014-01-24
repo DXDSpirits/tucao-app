@@ -1,37 +1,46 @@
 $(function() {
-    var TweetList = MeiweiApp.CollectionView.extend({
+    var TweetBox = MeiweiApp.ModelView.extend({
+        template: TPL['tweet-box']
+    });
+    
+    var ReplyList = MeiweiApp.CollectionView.extend({
         ModelView: MeiweiApp.ModelView.extend({
-            template: TPL['tweet-box'],
-            className: 'tweet-list-item well well-xs',
-            initModelView: function() {
-                var self = this;
-                this.$el.hammer().on('tap', 'footer', function(e) {
-                    var webView = new steroids.views.PreviewFileView("/assets/img/avatars/5.jpg");
-                    steroids.modal.show(webView);
-                });
+            templates: {
+                retweet: TPL['reply-box-retweet'],
+                like: TPL['reply-box-like'],
+                reply: TPL['reply-box-reply']
+            },
+            className: 'reply-list-item well well-xs',
+            render: function() {
+                var attrs = this.model ? this.model.toJSON() : {};
+                this.template = this.templates[attrs.action];
+                return this.renderTemplate(attrs);
             }
         })
     });
     
     MeiweiApp.Pages.TweetDetail = new (MeiweiApp.PageView.extend({
-    	events: {
-    		
-    	},
+    	events: { },
     	initPage: function() {
-    	    this.tweets = new MeiweiApp.Collections.Tweets();
-    		this.views = {
-    		    tweetList: new TweetList({ collection: this.tweets, el: this.$('.tweet-list') })
-    		};
+    		steroids.view.navigationBar.show("遭遇详情");
+    		this.tweet = new MeiweiApp.Models.Tweet();
+            this.replies = new MeiweiApp.Collections.Replies();
+            this.views = {
+                tweetBox: new TweetBox({ model: this.tweet, el: this.$('.tweet-list-item') }),
+                replyList: new ReplyList({ collection: this.replies, el: this.$('.reply-list') })
+            };
     	},
-        onVisibilityChange: function() {
-            if (document.hidden) {
-                this.$('.tweet-list-item').addClass('invisible');
-            } else {
-                this.$('.tweet-list-item').removeClass('invisible');
-            }
-        },
     	render: function() {
-	        this.tweets.reset(INSTANCE.tweets);
+            var message = MeiweiApp.getMessage();
+            var tweetId = message.tweet || 1;
+            var replies = _.filter(INSTANCE.replies, function(reply) {
+                return reply.tweet == tweetId;
+            });
+            var tweet = _.find(INSTANCE.tweets, function(tweet) {
+                return tweet.id == tweetId;
+            });
+            this.tweet.set(tweet);
+            this.replies.reset(replies);
     	}
     }))({el: $("#view-tweet-detail")});
 });

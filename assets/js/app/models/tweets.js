@@ -101,13 +101,13 @@ var TWEETS_INSTANCE = [
     }
 ];
 
-INSTANCE.tweets = _.map(TWEETS_INSTANCE, function(item, n) {
+INSTANCE.tweets = _.shuffle(_.map(TWEETS_INSTANCE, function(item, n) {
     var tweet = _.clone(item);
     tweet.id = n + 1;
     tweet.member = _.clone(MEMBERS[n % 5]);
     tweet.distance = _.random(1, 5000);
     tweet.sadness = _.random(1000, 5000);
-    tweet.liked = _.sample([true, false], 1)[0];
-    tweet.retweeted = _.sample([true, false], 1)[0];
+    tweet.liked = [true, false][(n % 4) / 2];
+    tweet.retweeted = [true, false][(n % 4) % 2];
     return _.clone(tweet);
-});
+}));

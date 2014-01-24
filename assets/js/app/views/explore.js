@@ -6,8 +6,8 @@ $(function() {
             initModelView: function() {
                 var self = this;
                 this.$el.hammer().on('tap', 'footer', function(e) {
-                    MeiweiApp.setMessage({'tweets': [self.model.id]});
-                    var webView = new steroids.views.WebView("index-notification.html");
+                    MeiweiApp.setMessage({'tweet': self.model.id});
+                    var webView = new steroids.views.WebView("index-tweet-detail.html");
                     var animation = new steroids.Animation("slideFromBottom");
                     steroids.layers.push({view: webView, animation: animation});
                 });
